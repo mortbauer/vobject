@@ -1087,6 +1087,8 @@ def readComponents(streamOrString, validate=False, transform=True,
         versionLine = None
         n = 0
         for line, n in getLogicalLines(stream, allowQP):
+            if not line.strip():
+                continue
             if ignoreUnreadable:
                 try:
                     vline = textLineToContentLine(line, n)
